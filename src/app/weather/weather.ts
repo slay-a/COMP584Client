@@ -12,6 +12,7 @@ export class Weather {
   constructor(http: HttpClient) {
   http.get<WeatherData[]>("http://localhost:5048/WeatherForecast").subscribe(result => {
     // handle result here
+    console.log(result);
   }); 
 }
 }

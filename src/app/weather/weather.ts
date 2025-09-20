@@ -1,18 +1,24 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { WeatherData } from '../weather-data';
+import { CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-weather',
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './weather.html',
   styleUrl: './weather.scss'
 })
 export class Weather {
-  constructor(http: HttpClient) {
+    forecasts: WeatherData[] = [];
+
+  constructor(http: HttpClient, private cdr: ChangeDetectorRef) {
   http.get<WeatherData[]>("http://localhost:5048/WeatherForecast").subscribe(result => {
-    // handle result here
     console.log(result);
+        this.forecasts = result; this.cdr.detectChanges();  
+
   }); 
+} 
 }
-}
+
+//cdr manually controls change detection since zoneless

@@ -12,3 +12,5 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient()
   ]
 };
+
+//NgZone service uses the Zone.js library to patch asynchronous browser APIs

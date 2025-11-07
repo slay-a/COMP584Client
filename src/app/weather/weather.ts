@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { WeatherData } from '../weather-data';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-weather',
@@ -8,11 +9,12 @@ import { WeatherData } from '../weather-data';
   templateUrl: './weather.html',
   styleUrl: './weather.scss'
 })
+
 export class Weather {
+  forecasts: WeatherData[] = [];
   constructor(http: HttpClient) {
-  http.get<WeatherData[]>("http://localhost:5048/WeatherForecast").subscribe(result => {
-    // handle result here
-    console.log(result);
-  }); 
-}
+    http.get<WeatherData[]>('http://localhost:5177/WeatherForecast').subscribe(result => {
+      this.forecasts = result;
+    });
+  }
 }

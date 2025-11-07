@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
-import {RouterOutlet } from '@angular/router';
-import { NavBar } from './nav-bar/nav-bar';
+import { RouterOutlet } from '@angular/router';
+import { NavBar } from "./nav-bar/nav-bar";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import { NavBar } from './nav-bar/nav-bar';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('COMP584Client');
+  protected readonly title = signal('COMP584_CLIENT');
 }

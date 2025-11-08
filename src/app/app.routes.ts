@@ -9,6 +9,6 @@ export const routes: Routes = [
     { path:'', component: Home, pathMatch:'full'},
     { path:'weather', component: Weather},
     { path:'city', component: City},
-    { path:'country', component: Country},
+    { path:'countries', component: Country},
     { path:'country-population/:id', component: CountryPopulation}
 ];

@@ -20,7 +20,8 @@ export class CountryPopulation implements OnInit {
 
   ngOnInit(): void {
     let idparam = this.activatedRoute.snapshot.paramMap.get('id');
-     this.http.get<PopulationData>(`${environment.apiUrl}api/countries/population/${idparam}`).subscribe(result => {
+     this.http.get<PopulationData>(`${environment.apiUrl}api/countries/${idparam}/population`).subscribe(result => {
+      console.log(result.population);
       this.CountryPopulation = result;
     });
   }
